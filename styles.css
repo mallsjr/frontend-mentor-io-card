@@ -126,6 +126,7 @@ body {
     flex-direction: row;
     max-width: 600px;
     position: relative;
+    overflow: visible;
   }
   .card .image-container img {
     width: 100%;
@@ -140,6 +141,28 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+  }
+  .card .card-footer.share {
+    background-color: white;
+  }
+  .card .card-footer {
+    position: relative;
+  }
+  .card .card-footer #author-info.share {
+    display: flex;
+  }
+  .card .card-footer .social-share {
+    display: none;
+  }
+  .card .card-footer .social-share.share {
+    position: absolute;
+    top: -25px;
+    right: -45px;
+    background-color: #48556a;
+    display: flex;
+    flex-direction: row;
+    padding: 0.45rem 1rem;
+    border-radius: 5px;
   }
 }
 
