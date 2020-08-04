@@ -17,39 +17,10 @@ body {
   color: #6d7f97;
   position: relative;
 }
-body .social-share {
-  position: absolute;
-  background-color: #48556a;
-  top: 180px;
-  right: -60px;
-  padding: 0.5rem 1.75rem;
-  text-align: center;
-  text-transform: uppercase;
-  display: flex;
-  align-items: center;
-  border-radius: 10px;
-  display: none;
-}
-body .social-share svg {
-  margin-left: 0.5rem;
-}
-body .social-share::after {
-  content: "";
-  position: relative;
-  top: 27px;
-  right: 59px;
-  width: 0;
-  height: 0;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-top: 13px solid #48556a;
-}
-body .social-share.show {
-  display: flex;
-}
 
 .card {
-  border-radius: 5px;
+  border-radius: 10px;
+  overflow: hidden;
   background: white;
   display: flex;
   flex-direction: column;
@@ -69,26 +40,45 @@ body .social-share.show {
 .card .card-content {
   padding: 1.25rem;
 }
+.card .card-footer.share {
+  background-color: #48556a;
+}
 .card .card-footer {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-top: 1rem;
+  padding: 0.8rem 1.25rem;
+  transition: all 0.5s;
 }
 .card .card-footer button {
   background: transparent;
   border: 0;
   cursor: pointer;
+  transition: all 0.5s;
 }
 .card .card-footer .image-container {
   border-radius: 50%;
   overflow: hidden;
-  height: 40px;
-  width: 40px;
+  height: 20px;
+  width: 20px;
   background: #ecf2f8;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0.25rem;
+  transition: all 0.5s;
+}
+.card .card-footer .image-container svg {
+  fill: #48556a;
+  transition: all 0.5s;
+}
+.card .card-footer .image-container.share {
+  background-color: #6d7f97;
+}
+.card .card-footer .image-container.share svg {
+  fill: #ecf2f8;
 }
 .card .card-footer .image-container img {
   width: 100%;
@@ -106,9 +96,29 @@ body .social-share.show {
 }
 .card .card-footer #author-info {
   display: flex;
+  transition: all 0.5s;
 }
-.card svg {
-  color: #9eafc2;
+.card .card-footer #author-info.share {
+  display: none;
+}
+.card .card-footer .social-share.share {
+  display: flex;
+  align-items: center;
+}
+.card .card-footer .social-share {
+  display: none;
+  transition: all 0.5s;
+}
+.card .card-footer .icons {
+  margin-left: 0.5rem;
+}
+.card .card-footer .icons > * {
+  margin-left: 0.5rem;
+}
+.card .card-footer .social-share p {
+  font-size: 14px;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
 }
 
 @media screen and (min-width: 500px) {
@@ -116,6 +126,15 @@ body .social-share.show {
     flex-direction: row;
     max-width: 600px;
     position: relative;
+  }
+  .card .image-container img {
+    width: 100%;
+    height: 100%;
+  }
+  .card .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
   .card .card-content {
     display: flex;

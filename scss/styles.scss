@@ -22,44 +22,11 @@ body {
   line-height: 1.5;
   color: $desaturatedDarkBlue;
   position: relative;
-
-  .social-share {
-    position: absolute;
-    background-color: $veryDarkGrayishBlue;
-    top: 180px;
-    right: -60px;
-    padding: 0.5rem 1.75rem;
-    text-align: center;
-    text-transform: uppercase;
-    display: flex;
-    align-items: center;
-    border-radius: 10px;
-    display: none;
-
-    svg {
-      margin-left: 0.5rem;
-    }
-  }
-
-  .social-share::after {
-    content: '';
-    position: relative;
-    top: 27px;
-    right: 59px;
-    width: 0;
-    height: 0;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-top: 13px solid $veryDarkGrayishBlue;
-  }
-
-  .social-share.show {
-    display: flex;
-  }
 }
 
 .card {
-  border-radius: 5px;
+  border-radius: 10px;
+  overflow: hidden;
   background: white;
   display: flex;
   flex-direction: column;
@@ -82,27 +49,49 @@ body {
     padding: 1.25rem;
   }
 
+  .card-footer.share {
+    background-color: $veryDarkGrayishBlue;
+  }
+
   .card-footer {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin-top: 1rem;
+    padding: 0.8rem 1.25rem;
+    transition: all 0.5s;
 
     button {
       background: transparent;
       border: 0;
       cursor: pointer;
+      transition: all 0.5s;
     }
 
     .image-container {
       border-radius: 50%;
       overflow: hidden;
-      height: 40px;
-      width: 40px;
+      height: 20px;
+      width: 20px;
       background: $lightGrayishBlue;
       text-align: center;
       display: flex;
       justify-content: center;
       align-items: center;
+      padding: 0.25rem;
+      transition: all 0.5s;
+
+      svg {
+        fill: $veryDarkGrayishBlue;
+        transition: all 0.5s;
+      }
+    }
+
+    .image-container.share {
+      background-color: $desaturatedDarkBlue;
+      svg {
+        fill: $lightGrayishBlue;
+      }
     }
 
     .image-container img {
@@ -124,11 +113,36 @@ body {
 
     #author-info {
       display: flex;
+      transition: all 0.5s;
     }
-  }
 
-  svg {
-    color: $grayishBlue;
+    #author-info.share {
+      display: none;
+    }
+
+    .social-share.share {
+      display: flex;
+      align-items: center;
+    }
+
+    .social-share {
+      display: none;
+      transition: all 0.5s;
+    }
+
+    .icons {
+      margin-left: 0.5rem;
+    }
+
+    .icons > * {
+      margin-left: 0.5rem;
+    }
+
+    .social-share p {
+      font-size: 14px;
+      letter-spacing: 0.1rem;
+      text-transform: uppercase;
+    }
   }
 }
 
@@ -138,10 +152,24 @@ body {
     max-width: 600px;
     position: relative;
 
+    .image-container img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .card-body {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
     .card-content {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+    }
+
+    .card-footer {
     }
   }
 }
